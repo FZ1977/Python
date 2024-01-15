@@ -7,7 +7,7 @@ Created on Wed Dec 27 09:26:39 2023
 
 def funzione1(a, k):
     if len(a) == k:
-        print(a)
+        print(a,end="")
             
 
 f = open("C:\\Users\\LENOVO\\Desktop\\Git\\Python\\testo.txt", "r")
