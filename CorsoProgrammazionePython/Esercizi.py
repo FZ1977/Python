@@ -998,3 +998,89 @@ def fibonacci(n):
         return 1
         
 fibonacci(6)
+
+#%% 51
+def sum_digits(s):
+    """
+    Assume che s sia una stringa
+    Restituisce la somma delle cifre decimali in s
+    Per esempio, se s è 'a2b3c', restituisce 5
+    """
+    i = 0
+    somma = 0
+    while i < len(s):
+        try:
+            somma = somma + int(s[i])
+            i += 1
+        except ValueError:
+            i += 1
+    
+    return somma
+
+print(sum_digits('a2b3c'))
+
+#%% 52
+def find_even( L ):
+    """
+    Assume che L sia una lista di interi
+    Restituisce il primo numero pari in L
+    Solleva ValueError se L non contiene numeri pari
+    """
+    primo_numero = False
+    n = None
+    for x in L:
+        if x%2 != 0:
+            raise ValueError
+        if x%2 == 0 and not primo_numero:
+            primo_numero = True
+            n = x
+    return n
+
+L = [2,4,6,8,9]
+print(find_even(L))
+
+#%% 53
+def insert_num():
+    """
+    Si scriva un programma che chieda all'utente di digitare 10 numeri 
+    da tastiera e li inserisca in una lista. Al termine stampi la lista. 
+    Si utilizzi il meccanismo di controllo delle eccezioni per assicurarsi 
+    che nella lista finale vengano inseriti soltanto valori numerici.
+    """
+    L=[]
+    for i in range(10):
+        try:
+            n = int(input("Inserisci un numero: "))
+            L.append(n)
+        except ValueError:
+            pass
+        
+    return L
+
+L=insert_num()
+print(L)
+
+#%% 54
+def f(L):
+    """
+    Si scriva una funzione che prenda in input una lista contenente numeri o 
+    stringhe. Restituisca la somma di tutti i numeri nella lista meno la somma 
+    di tutte le lunghezze delle stringhe nella lista. Ad esempio se la lista 
+    fosse [4, 'python', '3.5', 'int'], la funzione restituirebbe 
+    4 - 6 + 3.5 - 3 = -1.5.
+    """
+    somma = 0
+    for i in L:
+        try:
+            somma = somma + i
+        except TypeError:
+            somma = somma - len(i)
+            
+    return somma
+
+L = [4, 'python', '3.5', 'int']
+print(f(L))
+
+#%% 55
+def int_to_str(i):
+    
